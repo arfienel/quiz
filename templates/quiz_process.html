@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ question.question_text }} {% endblock %}
+
+{% block content %}
+<div class="outer" style="height:100px; width: 100%;">
+  <span class="inner" style="width:50%;border:1px solid yellow">
+<a style="font-size:24px">{{ question.question_text }}</a>
+<hr>
+<form method="post">
+  {% csrf_token %}
+  <div class="form-check">
+    <input class="form-check-input" style="width:30px;height:30px;margin:-4px 0 0 30px" type="checkbox" value="A" id="A" name="choiceA">
+    <label class="form-check-label" style="float:right;margin-right:10px" for="A">{{question.choiceA}}</label>
+  </div>
+  <hr>
+  <div class="form-check">
+    <input class="form-check-input" style="width:30px;height:30px;margin:-4px 0 0 30px" type="checkbox" value="B" id="B" name="choiceB">
+    <label class="form-check-label" style="float:right;margin-right:10px" for="B">{{ question.choiceB }}</label>
+  </div>
+  <hr>
+      <div class="form-check">
+    <input class="form-check-input" style="width:30px;height:30px;margin:-4px 0 0 30px" type="checkbox" value="C" id="C" name="choiceC">
+    <label class="form-check-label" style="float:right;margin-right:10px" for="C">{{ question.choiceC }}</label>
+  </div>
+  <hr>
+      <div class="form-check">
+    <input class="form-check-input" style="width:30px;height:30px;margin:-4px 0 0 30px" type="checkbox" value="D" id="D" name="choiceD">
+    <label class="form-check-label" style="float:right;margin-right:10px" for="D">{{ question.choiceD }}</label>
+  </div>
+  <hr>
+
+  <button class="btn btn-success" style="margin:0px 100px 10px 10px;float:right;" type="submit">Следующий вопрос</button>
+</form>
+
+    <button class="btn btn-warning" onclick="history.back();" style="margin:0px 10px 10px 100px;float:left" type="submit">Вернуться назад</button>
+    </span>
+</div>
+<br><br><br><br><br><br><br><br><br><br><br>
+
+{% endblock %}

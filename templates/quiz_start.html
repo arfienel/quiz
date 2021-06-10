@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %} Main_page {% endblock %}
+
+{% block content %}
+<h1 style="text-align:center">{{ quiz.quiz_title }}</h1>
+<br>
+<div class="outer" style="height:100px; width: 100%;">
+  <span class="inner" style="width:50%;border:1px solid yellow">
+<a style="font-size:24px">Вопросы:</a><br>
+
+      {% for quest in questions_list %}
+      <a style="text-align:left;margin:0px 20px 0px; font-size:20px">{{ forloop.counter }}. {{quest}}</a>
+<br>
+
+{% endfor %}
+      <br>
+
+<form method="get" action="{% url 'qz:quiz_process' quiz.quiz_uuid page %}">
+    <button class="btn btn-warning" type="submit">Начать викторину</button>
+</form>
+<br>
+  </span>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<br>
+<br>
+
+{% endblock %}

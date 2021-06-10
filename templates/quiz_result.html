@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %} Main_page {% endblock %}
+{% block content %}
+
+
+
+<p style="text-align:center;font-size:30px">Результаты викторины</p>
+<table border="2px" width="500" style="margin:auto; text-align:center;">
+
+   <tr>
+    <th style="border:2px solid; background-color:#30302e;width:250px">Ваши ответы</th>
+    <th style="border:2px solid; background-color:#30302e;">Верные ответы</th>
+
+   </tr>
+      {% for right_answers,user_answers in result_answers %}
+    <tr>
+      {% if user_answers == right_answers %}
+    <td style="border:2px solid; background-color:#077821;">{%for answer in user_answers%}{{answer}} {%endfor%}</td>
+      {% else %}
+    <td style="border:2px solid; background-color:#ad0c0c;">{%for answer in user_answers%}{{answer}} {%endfor%}</td>
+      {% endif %}
+    <td style="border:2px solid; background-color:#30302e;">{%for answer in right_answers%}{{answer}} {%endfor%}</td>
+    </tr>
+      {% endfor %}
+<tr><td colspan="2" style="border:2px solid; background-color:#30302e;font-size:24px">Процент правильных ответов: {{ result }}</td></tr>
+</table>
+<form method="post" style="text-align:center;margin-right:20px">
+  {% csrf_token %}
+  <div class="form-check">
+    <button class="form-check-label btn btn-warning" type="submit" value="exit" id="exit" name="exit" style="margin:10px">Выйти</button>
+  </div>
+</form>
+{% endblock %}

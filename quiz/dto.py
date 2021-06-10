@@ -1,4 +1,4 @@
-from typing import List, NamedTuple
+from typing import NamedTuple, List
 
 
 class ChoiceDTO(NamedTuple):
@@ -27,3 +27,4 @@ class AnswerDTO(NamedTuple):
 class AnswersDTO(NamedTuple):
     quiz_uuid: str
     answers: List[AnswerDTO]
+
