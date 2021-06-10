@@ -11,8 +11,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
-import os, sys
-
+import os
+import sys
 sys.path.insert(0, sys.path.insert(0, 'C:\\Users\\intre\\Documents\\python\\site\\django-quiz\\quiz'))
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
